@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @page {
+        margin: 10px;
+      }
+      body {
+        font-family: Arial;
+        margin: 0;
+        width: 760px;
+      }
+      div.container {
+        border-bottom: 1px solid grey;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 10px;
+        border: 1px solid grey;
+      }
+      img.logo-img {
+        width: 150px;
+      }
+      div.company-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        gap: 5px;
+      }
+      b.company-name {
+        font-size: 20px;
+      }
+      div.address {
+        font-size: 14px;
+      }
+      div.invoice-details {
+        text-align: right;
+        gap: 10px;
+      }
+      div.invoice-title {
+        font-size: 35px;
+        font-weight: 300;
+      }
+      div.invoice-number {
+        font-size: 14px;
+      }
+      div.section-2 {
+        border: 1px solid grey;
+        border-top: 0px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+      div.section-2-left {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+      }
+      div.section-2-right {
+        flex: 1;
+        border-left: 1px solid grey;
+        display: flex;
+        padding: 5px;
+        flex-direction: row;
+      }
+      div.section-2-left > div {
+        flex: 1;
+      }
+
+      div.section-2-right > div {
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img
+          src="https://d5r8zwzwkh326.cloudfront.net/logos/settlrs+logo+(1).png"
+          alt=""
+          class="logo-img"
+        />
+      </div>
+      <div class="company-details">
+        <b class="company-name">Settlrs Venture Private Limited</b>
+        <div class="address">
+          Incubex KRM1, 126, 1st cross road, KHB Colony,<br />
+          5th Block Koramangala<br />
+          Bengaluru Karnataka 560047<br />
+          India<br />
+          GSTIN 29AAYCS8310G1ZR<br />
+        </div>
+      </div>
+      <div class="invoice-details">
+        <div class="invoice-title">TAX INVOICE</div>
+        <br />
+        <div class="invoice-number">
+          Invoice#
+          <b>S/2023-24/00663</b>
+        </div>
+      </div>
+    </div>
+    <div class="section-2">
+      <div class="section-2-left">
+        <div>
+          Invoice Date<br />
+          Terms<br />
+          Due Date :<br />
+        </div>
+        <div>
+          <b>: orderdate</b><br />
+          <b>: Custom</b><br />
+          <b>: 05/05/2023</b>
+        </div>
+      </div>
+      <div class="section-2-right">
+        <div>
+          Place Of Supply<br />
+          Rental Tenure
+        </div>
+        <div>
+          <b>: Karnataka(29)</b><br />
+          <b>: April 1 to April 30, 2023</b>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+body{
+  overflow-x: hidden;
+}
+.btn-color{
+  background-color:rgb(7, 81, 7);
+  color:white;
+}
+
+.bg-img{
+    background-image: url("https://i.pinimg.com/originals/1c/7e/fd/1c7efd9bca0de498d988828de037cd59.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.items{
+  font-size:20px;
+  text-align: left;
+}
+.nav-text1{
+    color:rgb(4, 81, 4);
+    font-weight: bold;
+    font-size:20px;
+  }
+  .nav-text2{
+    color:white;
+    font-size:30px;
+  }
+  
+  #search_kw{
+    border-radius: 0;
+  }
+.efarm-img{
+    margin:0;
+    padding:0;
+}
+
+/*
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }*/
+
+/* cart css */
+.checkout ul{
+  border: 2px solid #ebebeb;
+  background: #f3f3f3;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+.checkout ul li{
+  list-style: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #252525;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.checkout ul li.subtotal{
+  font-weight: lighter;
+  text-transform: capitalize;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 14px;
+}
+.checkout ul li.subtotal span{
+  font-weight: bold;
+}
+.checkout ul li.cart-total{
+  padding-top: 10px;
+}
+.checkout ul li.cart-total span{
+  color: #e7ab3c;
+}
+.checkout ul li span{
+  float: right;
+}
+.checkout .proceed-btn{
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background:rgb(7, 81, 7);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 25px 14px 25px;
+  display: block;
+  text-align: center;
+}
+section{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+/* cart css end */
+/* about and contact */
+.c-form{
+  width:40%;
+  padding:40px;
+  background:#fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.c-form h2{
+font-size:30px;
+color:orange;
+font-weight:500;
+}
+.c-form .inp{
+position:relative;
+width:100%;
+margin-top: 10px;
+}
+.c-form .inp input,
+.c-form .inp textarea{
+width:100%;
+padding:5px 0;
+font-size: 16px;
+margin:10px 0;
+border:none;
+border-bottom:2px solid #333;
+outline:none;
+resize:none;
+}
+.c-form .inp span{
+position:absolute;
+left:0;
+padding:5px 0;
+font-size:16px;
+margin:10px 0;
+pointer-events:none;
+transition:0.5s;
+color:#666;
+}
+.c-form .inp input:focus ~ span,
+.c-form .inp input:valid ~ span,
+.c-form .inp textarea:focus ~ span,
+.c-form .inp textarea:valid ~ span{
+color:#e91e63;
+font-size:12px;
+transform: translateY(-20px);
+}
+.c-form .inp input[type="submit"]
+{
+width:100px;
+background:rgb(37, 34, 29);
+color:black;
+border:none;
+cursor:pointer;
+padding:10px;
+font-size: 18px;
+}
+/* about and contact end */
+
+
+
+

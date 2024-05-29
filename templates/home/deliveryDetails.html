@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+
+<section class="" style="background-color:green">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card" style="width: 47rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Address</h5>
+                        <p class="card-text">
+                        <form class="row g-3" action="{% url 'home' %}" method="GET">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name"
+                                    placeholder="Enter name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mobile" class="form-label">Phone number</label>
+                                <input type="number" class="form-control" id="mobile"
+                                    placeholder="Enter Phone number" name="mobile" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="city" class="form-label">City or Village</label>
+                                <input class="form-control" type="text" id="city" name="city" placeholder="Enter City or Village" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="state" class="form-label">State</label>
+                                <input class="form-control" type="text" id="state" name="state" placeholder="Enter State" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="doorNo" class="form-label">Door No</label>
+                                <input class="form-control" type="text" id="doorNo" name="doorNo" placeholder="Enter Door No" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="streetName" class="form-label">Street Name</label>
+                                <input class="form-control" type="text" id="streetName" name="streetName" placeholder="Enter Street Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pin" class="form-label">Pin</label>
+                                <input class="form-control" type="number" id="pin" name="pin" placeholder="Enter pin" required>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success">Add address</button>
+                            </div>
+                        </form>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

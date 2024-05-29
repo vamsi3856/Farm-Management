@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<br>
+ <head>
+  <style>
+    .rate > input{
+      display: none;
+    }
+    
+    .rate{
+      display: inline-block;;
+      border: 0;
+    }
+    
+    .rate > label{
+      float: right;
+    }
+    
+    /* Showing the stars */
+    .rate > label:before{
+      display: inline-block;
+      font-size: 1.1rem;
+      font-family: FontAwesome;
+      content: "\f005";
+      margin:0;
+      padding:0.3rem .2rem;
+      cursor: pointer;
+    }
+    
+    /* Half star */
+    .rate .half:before{
+      content: "\f089";
+      position: absolute;
+      padding-right: 0;
+    }
+    
+    /* Click and hover */
+    input:checked ~ label, label:hover ~ label{
+      color: #ffb503;
+    }
+    
+    /* hover hightlight */
+    input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+    label:hover ~ input:checked ~ label{
+      color: #cc9000;
+    }
+    
+    .rating-star i{
+      color: #ffb503 !important;
+    }
+    
+    ul.thumb{
+      margin:0 auto;
+      padding: 0;
+      float: left;
+    }
+    ul.thumb li{
+      list-style: none;
+      margin: 10px;
+    }
+    ul.thumb li img{
+      width: 80px;
+      height: 80px;
+      border: 1px solid grey;
+    }
+  </style>
+</head>  
+<section>
+<div class="container single-product">
+  <div class="row">
+    {% for product in sitem %}
+    <div class="col-md-6 p-3 ">
+<div class='mainImage'><img src="{{product.product_image.url}}" alt="" height="300" width="400"></div>
+      <ul class="thumb d-flex">
+      {% if product.product_image1.url is not None %}
+      <li>
+     <a href="{{product.product_image1.url}}" target="mainImage"><img  src="{{product.product_image1.url}}" alt="Product Image"></a>
+      </li>
+      {% endif %}
+      {% if product.product_image2.url is not None %}
+      <li>
+      <a href="{{product.product_image2.url}}" target="mainImage"><img src="{{product.product_image2.url}}" alt="Product Image"></a>
+    </li>
+      {% endif %}
+      {% if product.product_image3.url is not None %}
+    <li>
+      <a href="{{product.product_image3.url}}" target="mainImage"><img src="{{product.product_image3.url}}" alt="Product Image"></a>
+    </li>
+      {% endif %}
+     {% if product.product_image4.url  is not None%}
+     <li>
+      <a href="{{product.product_image4.url}}" target="mainImage"><img src="{{product.product_image4.url}}" alt="Product Image"></a>
+    </li>
+      {% endif %}
+    </ul>
+    
+
+    </div>
+    <div class="col-md-6 p-3" style="padding-left: 5%">
+      <span class="fw-bold" style="font-size:33px">{{product.product_name | capfirst}}</span><br>
+      <span class="text-muted">{{product.category.category_name}}</span><br>
+      <span class="fw-bold" style="font-size:28px">₹{{product.discount}} </span> <del><span class="text-muted"
+          style="font-size:20px">₹{{product.price_for_min_quantity}} </span></del><br>
+      <span>( per {{product.min_quantity_to_fix_price}} {{product.quantity}} )</span><br>
+      <span>* {{product.available_quantity}} {{product.quantity}} are available</span><br>
+      <span>Seller: {{product.user.username | capfirst}}</span>
+      
+    <div class="rating-star">
+      <i class="fa fa-star{% if product.rating == 0.5 %}-half-o{%elif product.rating < 1 %}-o {% endif %} text-warning" aria-hidden="'true"></i>
+      <i class="fa fa-star{% if product.rating == 1.5 %}-half-o{%elif product.rating < 2 %}-o {% endif %} text-warning" aria-hidden="'true"></i>
+      <i class="fa fa-star{% if product.rating == 2.5 %}-half-o{%elif product.rating < 3 %}-o {% endif %} text-warning" aria-hidden="'true"></i>
+      <i class="fa fa-star{% if product.rating == 3.5 %}-half-o{%elif product.rating < 4 %}-o {% endif %} text-warning" aria-hidden="'true"></i>
+      <i class="fa fa-star{% if product.rating == 4.5 %}-half-o{%elif product.rating < 5 %}-o {% endif %} text-warning" aria-hidden="'true"></i>
+    </div>
+      <a href="{% url 'add_cart' product.id %}" class="btn btn-outline-dark mb-2 w-100">Add to cart</a>
+      <a href="{% url 'cartnew' %}" class="btn btn-color w-100">Buy now</a>
+      <br /><br />
+      <h3>Details</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione neque veniam doloribus nisi numquam sequi
+        labore, expedita officia rem, illo voluptas fugiat maiores totam repudiandae! Ratione voluptatem molestiae odio
+        deserunt.</p>
+    </div>
+    {% endfor %}
+  </div>
+
+
+  
+  
+    <script>
+      $(document).ready(function(){
+          $('.thumb a').click(function(e){
+              console.log("lokesh")
+              e.preventDefault();
+              console.log('ïnvoked')
+              $('.mainImage img').attr('src',$(this).attr("href"));
+          })
+      })
+    
+  </script>
+
+  {% comment %} <br><br>
+
+
+<div class="row">
+  <div class="col-md-9">
+
+
+
+    <form action="/" method="POST">
+      {% csrf_token %}
+      <h5>Write Your Review</h5>
+
+      <div>
+        <!-- Rating stars -->
+        <label>How do you rate this product?</label>
+        <br>
+        <div class="rate">
+          <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10" title="5"></label>
+          <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating9" title="4.5" class="half"></label>
+          <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating8" title="4"></label>
+          <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating7" title="3.5" class="half"></label>
+          <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating6" title="3"></label>
+          <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating5" title="2.5" class="half"></label>
+          <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating4" title="2"></label>
+          <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating3" title="1.5" class="half"></label>
+          <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2" title="1"></label>
+          <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1" title="0.5" class="half"></label>
+        </div>
+<br>
+        Review Title:
+        <input type="text" class="form-control" name="subject">
+        <br>
+        Review:
+        <textarea name="review" rows="4" class="form-control"></textarea>
+        <br>
+         {% if user.is_authenticated %}
+          {% if orderproduct %}
+            <input type="submit" value="Submit Review" class="btn btn-primary">
+          {% else %}
+            <p>You must purchase this product to post a review.</p>
+          {% endif %}
+        {% else %}
+        <p>You must be logged in to post a review. <span><a href="{% url 'login' %}">Login now</a></span></p>
+        {% endif %}
+
+        {% comment %} {% if user.is_authenticated %}
+            <input type="submit" value="Submit Review" class="btn btn-primary">
+        {% else %}
+        <p>You must be logged in to post a review. <span><a href="{% url 'login' %}">Login now</a></span></p>
+        {% endif %}
+        <div class="alert alert-danger" role="alert" style="margin-top:10px;">
+          2-Factor Review Submission is disabled for demo purpose.
+</div> {% endcomment %}
+
+
+
+  </div> <!-- col.// -->
+</div> <!-- row.// -->
+
+
+</div> <!-- container .//  -->
+</section>
+
+{% endblock %}
+

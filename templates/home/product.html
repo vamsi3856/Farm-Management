@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<br/>
+
+<section class="mt-5 mb-5">
+    <div class="container">
+        <div class="row p-3 align-items-center">
+            {% if product_count > 1 %}
+            <p class="items">{{ product_count }} items found</p>
+            {% else %}
+            <p class="items">{{ product_count }} item found</p>
+            {% endif %}
+            {% for product in sitem %}
+        
+            <div class="col" style="margin-bottom:100px;padding: 0;">
+                
+                <div class="card" style="width: 19rem;">
+                    
+                    <a href="{% url 'productView' product.product_slug %}"><img src="{{product.product_image.url}}" width="320px" height="250px"
+                            class="card-img-top" alt="{{product.product_name}}"></a>
+                    <div class="card-body">
+                        
+                        <h3 class="card-title" style="font-size:28px">{{product.product_name | capfirst}} </h3>
+                        <p class="card-text"><h4><span class="fw-bold" style="font-size:28px">₹{{product.discount}}</span> <del><span
+                                    class="text-muted" style="font-size:20px">₹{{product.price_for_min_quantity}} </span></del></h4><span>( per {{product.min_quantity_to_fix_price}}
+                                {{product.quantity}} )</span><br><!--<span>* {{product.available_quantity}} {{product.quantity}} are available</span><br>
+                                <span>Seller: {{product.user.username}}</span><br>-->
+                            </p>
+                        <a href="{% url 'add_cart' product.id %}" class="btn btn-outline-dark mb-2 w-100">Add to
+                            cart</a>
+                        <a href="{% url 'productView' product.product_slug %}" class="btn btn-color w-100">Buy now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endblock %}

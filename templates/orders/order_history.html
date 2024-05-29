@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<br>
+<br>
+
+<center><table class="table table-striped" border=1 style="width:50%;">
+	<thead>
+	  <tr>
+		<th scope="col">Order Id</th></a>
+		<th scope="col">Grand Total</th>
+		<th scope="col">Date</th>
+		<th scope="col">Order Status</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% for i in orders %}
+	  <tr>
+		<th scope="row"><a href="{% url 'invoice' i.id %}" >{{i.id}}</th>
+		<td>{{i.order_total}}</td>
+		<td>{{i.created_at}}</td>
+		<td>{{i.status}}</td>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+  </table>
+</center>
+  
+{% endblock %}

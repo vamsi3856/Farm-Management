@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 10px;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: Arial;
+        margin: 0;
+        width: 760px;
+        font-size: 12px;
+        min-height: 29.7cm;
+        border: 1px solid grey;
+      }
+      div.container {
+        border-bottom: 1px solid grey;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 5px 10px;
+      }
+      .logo {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img.logo-img {
+        width: 150px;
+      }
+      div.company-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        gap: 5px;
+        flex: 2;
+      }
+      b.company-name {
+        font-size: 20px;
+      }
+      div.address {
+        font-size: 12px;
+      }
+      #invoice-details {
+        flex: 1;
+        font-size: 32px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+      div.invoice-title {
+        font-size: 35px;
+        font-weight: 300;
+      }
+      div.invoice-number {
+        font-size: 12px;
+      }
+      div.section-2 {
+        border: 1px solid grey;
+        border-right: none;
+        border-left: none;
+        border-top: 0px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+      }
+      div.section-2-left {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+      }
+      div.section-2-right {
+        flex: 1;
+        border-left: 1px solid grey;
+        display: flex;
+        padding: 5px;
+        flex-direction: row;
+      }
+      div.section-2-left > div {
+        flex: 1;
+      }
+      div.section-2-right > div {
+        flex: 1;
+      }
+      div.section-3-header {
+        font-size: 12px;
+        font-weight: 800;
+        border-bottom: 1px solid grey;
+
+        border-top: 0px;
+        padding: 3px 5px;
+        background-color: #dddddd;
+      }
+      div.section-4 {
+        border: 0.5px solid grey;
+        border-top: 0px;
+        border-bottom: 0;
+        padding: 3px 5px;
+        font-size: 12px;
+      }
+      div.section-4 > b {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .section-5 {
+        border: 0.5px solid grey;
+      }
+      table {
+        width: 760px;
+        font-family: arial, sans-serif;
+        margin: 0;
+        border-spacing: 0;
+      }
+      td {
+        border: 0.5px solid grey;
+        gap: 0px;
+        text-align: left;
+        padding: 8px 5px 3px 5px;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      #section-5-header-1,
+      #section-5-header-2 {
+        border: 0.5px solid grey;
+        gap: 0px;
+        text-align: left;
+        padding: 8px 5px 3px 5px;
+        font-size: 12px;
+        vertical-align: top;
+        border-top: none;
+      }
+      th {
+        background-color: #dddddd;
+      }
+      #top-column {
+        border: 0.5px solid grey;
+        border-bottom: none;
+      }
+      #section-5-header-1 {
+        text-align: left;
+      }
+      #section-5-header-2 {
+        text-align: right;
+      }
+      #section-6 {
+        border: 1px solid grey;
+        border-top: 0;
+        height: 100px;
+      }
+      #section-7 {
+        flex: 1;
+        border: 1px solid grey;
+        border-top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 12px;
+        height: auto;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+      }
+
+      #section-7 > div {
+        flex: 1;
+      }
+
+      #section-7-left {
+        border-right: 1px solid grey;
+        padding: 10px 5px 5px 5px;
+      }
+
+      #section-7-right {
+        padding: 10px 0 0 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #section-7-right-first {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        text-align: right;
+        border-bottom: 1px solid grey;
+        padding-right: 5px;
+        padding-bottom: 5px;
+      }
+      #section-7-right-first-left {
+        flex: 2;
+      }
+
+      #section-7-right-first-right {
+        flex: 1;
+      }
+      #section-8-image {
+        text-align: right;
+        bottom: 0;
+        right: 0;
+        border-bottom: 1px solid grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img
+          src="https://d5r8zwzwkh326.cloudfront.net/logos/settlrs+logo+(1).png"
+          alt=""
+          class="logo-img"
+        />
+      </div>
+      <div class="company-details">
+        <b class="company-name">Settlrs Venture Private Limited</b>
+        <div class="address">
+          Incubex KRM1, 126, 1st cross road, KHB Colony,<br />
+          5th Block Koramangala<br />
+          Bengaluru Karnataka 560047<br />
+          India<br />
+          GSTIN 29AAYCS8310G1ZR<br />
+        </div>
+      </div>
+      <div id="invoice-details">Quotation</div>
+    </div>
+    <div class="section-2">
+      <div class="section-2-left">
+        <div>
+          #<br />
+          Estimate Date<br />
+          Reference#<br />
+        </div>
+        <div>
+          <b>: orderdate</b><br />
+          <b>: Custom</b><br />
+          <b>: 05/05/2023</b>
+        </div>
+      </div>
+      <div class="section-2-right">
+        <div>Place Of Supply<br /></div>
+        <div><b>: Karnataka(29)</b><br /></div>
+      </div>
+    </div>
+    <div class="section-3-header">Bill To</div>
+    <div class="section-4">
+      <div>
+        <b>TALENT500 TECH (INDIA) PVT LTD</b><br />
+        Ground floor, No. 3/7, 4 East wing prestige sterling square,<br />
+        Madras bank road, Sampangi Rama Nagar,<br />
+        Bengaluru <br />
+        560001 Karnataka<br />
+        India<br />
+        GSTIN: 29AAICT5303N1ZW
+      </div>
+    </div>
+    <table class="section-5">
+      <tr class="section-5-header">
+        <th id="top-column"></th>
+        <th id="top-column"></th>
+        <th id="top-column"></th>
+        <th id="top-column"></th>
+        <th id="top-column"></th>
+        <th
+          class="igst-column"
+          id="top-column"
+          colspan="2"
+          style="border-bottom: 1px solid grey"
+        >
+          IGST
+        </th>
+        <th id="top-column"></th>
+      </tr>
+      <tr class="section-5-header">
+        <th id="section-5-header-1">#</th>
+        <th id="section-5-header-1">Item & Description</th>
+        <th id="section-5-header-1">HSN/SAC</th>
+        <th id="section-5-header-2">Qty</th>
+        <th id="section-5-header-2">Rate</th>
+        <th id="section-5-header-2" class="section-5-header-2">%</th>
+        <th id="section-5-header-2" class="section-5-header-2">Amt</th>
+        <th id="section-5-header-2">Amount</th>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+      <tr>
+        <td id="section-5-header-1">1</td>
+        <td id="section-5-header-1">
+          Windows i7,<br />
+          16 GB RAM, 512 GB SSD<br />
+        </td>
+        <td id="section-5-header-1">997323</td>
+        <td id="section-5-header-2">33.00</td>
+        <td id="section-5-header-2">3,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+        <td id="section-5-header-2">1,23,750.00</td>
+      </tr>
+    </table>
+    <div id="section-7">
+      <div id="section-7-left">
+        Total In Words<br />
+        <b>Rupees One Lakh Forty-Six Thousand Twenty-Five Only</b><br /><br />
+        Looking forward for your business.
+      </div>
+      <div id="section-7-right">
+        <div id="section-7-right-first">
+          <div id="section-7-right-first-left">
+            Sub total<br />
+            IGST18 (18%)<br />
+            <b>Total</b><br />
+          </div>
+          <div id="section-7-right-first-right">
+            3,500.00<br />
+            630.00<br />
+            <b>₹4,130.00</b><br />
+          </div>
+        </div>
+        <div id="section-8-image">
+          <img
+            style="width: 350px"
+            alt=""
+            src="https://d5r8zwzwkh326.cloudfront.net/logos/settlrs+logo+(1).png"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

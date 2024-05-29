@@ -1,0 +1,51 @@
+{% load static %}
+
+<section>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+      <div class="container">
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand nav-text2 mb-0 h1" href="{% url 'home' %}"><!--𝕰 𝖋𝖆𝖗𝖒𝖎𝖓𝖌--><img src="{% static 'images/efarm.png' %}" width="30%"></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav  mb-2 mb-lg-0 ms-auto">
+            <li class="nav-item mx-2">
+              <a class="nav-link nav-text1" href="{% url 'order_history' %}">My Orders</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link nav-text1" href="{% url 'sellProducts' %}">Sell Products</a>
+            </li>
+
+            <li class="nav-item mx-2 me-4">
+              <a class="nav-link nav-text1" href="{%  url 'cartnew' %}"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+              {% comment %} <a href="{% url 'cartnew' %}" class="widget-header pl-3 ml-3">
+                <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+                <span class="badge badge-pill badge-danger notify">9</span>
+              </a> {% endcomment %}
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item ">
+              <a class="nav-link my-1 text-dark" href="{% url 'logout' %}" style="padding-left:0px;">logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item mx-2">
+              <a class="nav-link my-1 text-dark" href="{% url 'register' %}" style="padding-right:0px;">Sign up |</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link my-1 text-dark" href="{% url 'login' %}" style="padding-left:0px;">login</a>
+            </li>
+            {% endif %}
+          </ul>
+          <form class="d-flex" role="search" action="{% url 'search' %}" method="GET">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search_kw" id="search_kw">
+          </form>
+        </div>
+      </div>
+    </nav>
+ 
+  </section>
+
+    <!--end navbar-->
+   

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card" style="width: 47rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Product</h5>
+                        <p class="card-text">
+                        <form class="row g-3"  method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <label for="product_name" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="product_name"
+                                    placeholder="Enter product name" name="product_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="category" class="form-label">Category</label>
+                                <select id="category" class="form-select" name="category">
+                                    <option selected>Select...</option>
+                                    {% for category in category %}
+                                    <option>{{category.category_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="available_quantity" class="form-label">Available quantity</label>
+                                <input type="number" class="form-control" placeholder="Enter available quantity"
+                                    id="available_quantity" name="available_quantity" required>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <select id="quantity" class="form-select" name="quantity" required>
+                                    <option selected>Select...</option>
+                                    <option>Kilogram</option>
+                                    <option>Gram</option>
+                                    <option>Units</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="min_quantity" class="form-label">Min quantity</label>
+                                <input type="number" class="form-control" placeholder="Enter min quantity to fix price"
+                                    id="min_quantity" name="min_quantity" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="price" class="form-label">Price for min quantity</label>
+                                <input type="number" class="form-control" id="price"
+                                    placeholder="Enter price for min quantity" name="price" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="discount" class="form-label">Discount</label>
+                                <input type="number" class="form-control"
+                                    placeholder="Enter discount if you want to give" id="discount" name="discount">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="product_image" class="form-label">Product Image 
+                                <span style="color:red">* required</span></label>
+                                <input class="form-control" type="file" id="product_image" name="product_image"  required>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="product_image" class="form-label">Product Image</label>
+                                <input class="form-control" type="file" id="product_image" name="product_image1" >
+                            </div>
+                            <div class="col-md-6">
+                                <label for="product_image" class="form-label">Product Image</label>
+                                <input class="form-control" type="file" id="product_image" name="product_image2" >
+                            </div>
+                            <div class="col-md-6">
+                                <label for="product_image" class="form-label">Product Image</label>
+                                <input class="form-control" type="file" id="product_image" name="product_image3" >
+                            </div>
+                            <div class="col-md-6">
+                                <label for="product_image" class="form-label">Product Image</label>
+                                <input class="form-control" type="file" id="product_image" name="product_image4" >
+                            </div> 
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-color">Add product</button>
+                            </div>
+                        </form>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
